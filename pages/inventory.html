@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Inventory | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="inventory">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="active" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>Blood Inventory</h1><p>Track blood-group availability across the network.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<div class="page-title"><h2>Blood Inventory</h2><p>Monitor availability across all blood groups and update local stock.</p></div>
+<div class="card"><form id="inventoryForm"><div class="form-grid"><div class="field"><label>Blood Group</label><select id="invGroup"><option>O−</option><option>O+</option><option>A−</option><option>A+</option><option>B−</option><option>B+</option><option>AB−</option><option>AB+</option></select></div><div class="field"><label>New Available Units</label><input id="invUnits" type="number" min="0" placeholder="e.g. 120"></div><div class="field" style="display:flex;align-items:end"><button class="btn primary" type="submit">Update Inventory</button></div></div></form></div>
+<div class="card table-card"><div class="section-head"><h3>Network Inventory</h3><span>Last synchronized: 2 min ago</span></div><div class="table-wrap"><table class="table"><thead><tr><th>Blood Group</th><th>Available</th><th>7-day Demand</th><th>Coverage</th><th>Status</th><th>Action</th></tr></thead><tbody>
+<tr><td class="group">O−</td><td>18</td><td>96</td><td>18.7%</td><td><span class="status critical">CRITICAL</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">O+</td><td>1,842</td><td>2,310</td><td>79.7%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">A−</td><td>126</td><td>184</td><td>68.5%</td><td><span class="status watch">WATCH</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">A+</td><td>2,110</td><td>2,020</td><td>104.4%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">B−</td><td>92</td><td>171</td><td>53.8%</td><td><span class="status watch">WATCH</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">B+</td><td>1,740</td><td>1,560</td><td>111.5%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">AB−</td><td>54</td><td>65</td><td>83.1%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">AB+</td><td>1,220</td><td>1,050</td><td>116.2%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+</tbody></table></div></div>
+
+</main></div>
+<script src="../script.js"></script></body></html>

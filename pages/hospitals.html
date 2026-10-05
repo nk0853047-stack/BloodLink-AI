@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Network | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="hospitals">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="active" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>Hospital Network</h1><p>Coordinate inventory between connected hospitals.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<div class="page-title"><h2>Hospital Network</h2><p>Coordinate blood movement between connected healthcare facilities.</p></div>
+<div class="card"><div class="section-head"><h3>Connected Hospitals</h3><span>24 hospitals online</span></div><div class="table-wrap"><table class="table"><thead><tr><th>Hospital</th><th>Location</th><th>O− Stock</th><th>Network Status</th><th>Suggested Action</th></tr></thead><tbody>
+<tr><td class="group">City Hospital</td><td>Jamshedpur</td><td>18 units</td><td><span class="status critical">CRITICAL</span></td><td><button class="transfer coord">Request Transfer</button></td></tr>
+<tr><td class="group">Central Blood Bank</td><td>Sakchi</td><td>126 units</td><td><span class="status stable">STABLE</span></td><td><button class="transfer coord">Offer Units</button></td></tr>
+<tr><td class="group">Metro Care</td><td>Adityapur</td><td>84 units</td><td><span class="status stable">STABLE</span></td><td><button class="transfer coord">Offer Units</button></td></tr>
+<tr><td class="group">District Hospital</td><td>Mango</td><td>41 units</td><td><span class="status watch">WATCH</span></td><td><button class="transfer coord">Monitor</button></td></tr>
+<tr><td class="group">Emergency Centre</td><td>Telco</td><td>22 units</td><td><span class="status critical">CRITICAL</span></td><td><button class="transfer coord">Request Transfer</button></td></tr>
+</tbody></table></div></div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h3>Transfer Recommendation</h3><span>AI-assisted</span></div><div class="recommend" style="margin-top:0"><div><b>From</b><span>Central Blood Bank · 126 O−</span></div><div><b>To</b><span>City Hospital · 18 O−</span></div><div><b>Recommended</b><span>Transfer 30 O− units now</span></div></div></div>
+
+</main></div>
+<script src="../script.js"></script></body></html>
