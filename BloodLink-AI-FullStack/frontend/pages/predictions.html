@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI Predictions | BloodLink AI</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="side-brand">
+                <div class="logo">🩸</div>
+                <div>
+                    <h2>BloodLink <b>AI</b></h2><small>EMERGENCY NETWORK</small>
+                </div>
+            </div>
+            <nav class="nav"><a href="dashboard.html">📊 Dashboard</a><a class="active" href="predictions.html">🤖 AI
+                    Predictions</a><a href="inventory.html">🩸 Inventory</a><a href="donors.html">👥 Donors</a><a
+                    href="hospitals.html">🏥 Hospitals</a><a href="alerts.html">🚨 Alerts</a></nav>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h1>AI Shortage Prediction</h1>
+                    <p>Simulate demand, emergency and donation factors.</p>
+                </div>
+            </header>
+            <div class="card">
+                <form id="predictForm">
+                    <div class="form-grid">
+                        <div class="field"><label>Blood Group</label><select id="group">
+                                <option>O−</option>
+                                <option>O+</option>
+                                <option>A−</option>
+                                <option>A+</option>
+                                <option>B−</option>
+                                <option>B+</option>
+                            </select></div>
+                        <div class="field"><label>Current Stock</label><input id="stock" type="number" value="80"></div>
+                        <div class="field"><label>7-day Demand</label><input id="demand" type="number" value="140">
+                        </div>
+                        <div class="field"><label>Emergency Multiplier</label><input id="emergency" type="number"
+                                value="1.2" step=".1"></div>
+                        <div class="field"><label>Expected Donations</label><input id="donations" type="number"
+                                value="35"></div>
+                        <div class="field"><label>Seasonal Multiplier</label><input id="seasonal" type="number"
+                                value="1.1" step=".1"></div>
+                    </div><button class="btn primary" style="margin-top:16px">Calculate Risk</button>
+                </form>
+                <div class="prediction">
+                    <div class="eyebrow">MODEL OUTPUT</div>
+                    <div class="score" id="score">--%</div>
+                    <p id="result">Run the model to generate a risk score and response recommendation.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+    <script>if (!localStorage.getItem('bloodlinkToken')) location.href = '../index.html'; document.getElementById('predictForm').onsubmit = async e => { e.preventDefault(); try { const d = await api('/predictions', { method: 'POST', body: JSON.stringify({ bloodGroup: group.value, stock: +stock.value, demand: +demand.value, emergency: +emergency.value, donations: +donations.value, seasonal: +seasonal.value }) }); score.textContent = d.risk + '%'; result.textContent = d.level + ' · ' + d.hours + ' hours · ' + d.recommendation; toast('Prediction generated'); } catch (x) { toast(x.message) } };</script>
+</body>
+
+</html>

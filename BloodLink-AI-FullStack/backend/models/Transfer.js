@@ -1,0 +1,1 @@
+const mongoose=require('mongoose');module.exports=mongoose.model('Transfer',new mongoose.Schema({fromHospital:String,toHospital:String,bloodGroup:String,units:Number,status:{type:String,default:'requested'}},{timestamps:true}));

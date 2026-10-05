@@ -1,0 +1,1 @@
+const mongoose=require('mongoose');module.exports=mongoose.model('Donor',new mongoose.Schema({name:String,bloodGroup:String,city:String,distanceKm:Number,available:Boolean,phone:String},{timestamps:true}));

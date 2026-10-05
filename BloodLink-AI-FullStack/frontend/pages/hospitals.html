@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hospitals | BloodLink AI</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="side-brand">
+                <div class="logo">🩸</div>
+                <div>
+                    <h2>BloodLink <b>AI</b></h2><small>EMERGENCY NETWORK</small>
+                </div>
+            </div>
+            <nav class="nav"><a href="dashboard.html">📊 Dashboard</a><a href="predictions.html">🤖 AI Predictions</a><a
+                    href="inventory.html">🩸 Inventory</a><a href="donors.html">👥 Donors</a><a class="active"
+                    href="hospitals.html">🏥 Hospitals</a><a href="alerts.html">🚨 Alerts</a></nav>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h1>Hospital Network</h1>
+                    <p>Connected facilities and transfer coordination.</p>
+                </div>
+            </header>
+            <div class="card">
+                <div class="section-head">
+                    <h3>Connected Hospitals</h3><span>Live backend data</span>
+                </div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Hospital</th>
+                                <th>City</th>
+                                <th>O− Units</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hr"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card" style="margin-top:15px">
+                <h3>Transfer Request</h3>
+                <form id="tf" style="margin-top:15px">
+                    <div class="form-grid">
+                        <div class="field"><label>From</label><input id="from" value="Central Blood Bank"></div>
+                        <div class="field"><label>To</label><input id="to" value="City Hospital"></div>
+                        <div class="field"><label>Units</label><input id="units" type="number" value="30"></div>
+                    </div><button class="btn primary" style="margin-top:15px">Send Transfer Request</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+    <script>if (!localStorage.getItem('bloodlinkToken')) location.href = '../index.html'; async function load() { try { const d = await api('/hospitals'); hr.innerHTML = d.map(x => `<tr><td><b>${x.name}</b></td><td>${x.city}</td><td>${x.oNegativeUnits}</td><td><span class="status ${x.status === 'critical' ? 'critical' : x.status === 'watch' ? 'watch' : 'stable'}">${x.status.toUpperCase()}</span></td><td><button class="coord" onclick="send('${x.name}')">Coordinate</button></td></tr>`).join('') } catch (e) { toast(e.message) } } async function send(name) { try { await api('/transfers', { method: 'POST', body: JSON.stringify({ fromHospital: 'Central Blood Bank', toHospital: name, bloodGroup: 'O-', units: 30 }) }); toast('Transfer request created') } catch (e) { toast(e.message) } } tf.onsubmit = e => { e.preventDefault(); send(to.value) }; load();</script>
+</body>
+
+</html>

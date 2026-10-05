@@ -1,0 +1,1 @@
+const mongoose=require('mongoose');module.exports=mongoose.model('BloodInventory',new mongoose.Schema({bloodGroup:String,availableUnits:Number,weeklyDemand:Number,hospital:String,location:String},{timestamps:true}));

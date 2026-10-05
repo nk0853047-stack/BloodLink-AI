@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Donors | BloodLink AI</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="side-brand">
+                <div class="logo">🩸</div>
+                <div>
+                    <h2>BloodLink <b>AI</b></h2><small>EMERGENCY NETWORK</small>
+                </div>
+            </div>
+            <nav class="nav"><a href="dashboard.html">📊 Dashboard</a><a href="predictions.html">🤖 AI Predictions</a><a
+                    href="inventory.html">🩸 Inventory</a><a class="active" href="donors.html">👥 Donors</a><a
+                    href="hospitals.html">🏥 Hospitals</a><a href="alerts.html">🚨 Alerts</a></nav>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h1>Donor Network</h1>
+                    <p>Backend-powered emergency donor matching.</p>
+                </div>
+            </header>
+            <div class="card">
+                <h3>Find Matching Donors</h3>
+                <form id="df" style="margin-top:15px">
+                    <div class="form-grid">
+                        <div class="field"><label>Blood Group</label><select id="dg">
+                                <option>O-</option>
+                                <option>A-</option>
+                                <option>B-</option>
+                                <option>O+</option>
+                                <option>A+</option>
+                            </select></div>
+                        <div class="field"><label>Radius (km)</label><input id="radius" type="number" value="50"></div>
+                        <div class="field" style="display:flex;align-items:end"><button class="btn primary">Find
+                                Donors</button></div>
+                    </div>
+                </form>
+            </div>
+            <div class="card" style="margin-top:15px">
+                <div class="section-head">
+                    <h3>Matching Donors</h3><span id="count"></span>
+                </div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Group</th>
+                                <th>City</th>
+                                <th>Distance</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dr"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+    <script>if (!localStorage.getItem('bloodlinkToken')) location.href = '../index.html'; df.onsubmit = async e => { e.preventDefault(); try { const d = await api('/donors/match/' + encodeURIComponent(dg.value) + '?radius=' + radius.value); count.textContent = d.count + ' match(es)'; dr.innerHTML = d.donors.map(x => `<tr><td><b>${x.name}</b></td><td>${x.bloodGroup}</td><td>${x.city}</td><td>${x.distanceKm} km</td><td><span class="status stable">AVAILABLE</span></td></tr>`).join('') || '<tr><td colspan="5">No donors found.</td></tr>' } catch (x) { toast(x.message) } };</script>
+</body>
+
+</html>

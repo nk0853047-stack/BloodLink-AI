@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Inventory | BloodLink AI</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="side-brand">
+                <div class="logo">🩸</div>
+                <div>
+                    <h2>BloodLink <b>AI</b></h2><small>EMERGENCY NETWORK</small>
+                </div>
+            </div>
+            <nav class="nav"><a href="dashboard.html">📊 Dashboard</a><a href="predictions.html">🤖 AI Predictions</a><a
+                    class="active" href="inventory.html">🩸 Inventory</a><a href="donors.html">👥 Donors</a><a
+                    href="hospitals.html">🏥 Hospitals</a><a href="alerts.html">🚨 Alerts</a></nav>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h1>Blood Inventory</h1>
+                    <p>Live inventory data from the backend API.</p>
+                </div>
+            </header>
+            <div class="card">
+                <div class="section-head">
+                    <h3>Network Inventory</h3><button class="btn soft" onclick="loadInventory()">Refresh</button>
+                </div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>Available</th>
+                                <th>7-day Demand</th>
+                                <th>Coverage</th>
+                                <th>Status</th>
+                                <th>Hospital</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card" style="margin-top:15px">
+                <h3>Update Inventory</h3>
+                <form id="inv" style="margin-top:15px">
+                    <div class="form-grid">
+                        <div class="field"><label>Blood Group</label><select id="ig">
+                                <option>O-</option>
+                                <option>O+</option>
+                                <option>A-</option>
+                                <option>A+</option>
+                                <option>B-</option>
+                                <option>B+</option>
+                                <option>AB-</option>
+                                <option>AB+</option>
+                            </select></div>
+                        <div class="field"><label>Available Units</label><input id="iu" type="number" min="0"
+                                value="50"></div>
+                        <div class="field" style="display:flex;align-items:end"><button
+                                class="btn primary">Update</button></div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+    <script>if (!localStorage.getItem('bloodlinkToken')) location.href = '../index.html'; async function loadInventory() { try { const d = await api('/inventory'); rows.innerHTML = d.map(x => { const c = x.weeklyDemand ? ((x.availableUnits / x.weeklyDemand) * 100) : 0; const s = c < 30 ? 'CRITICAL' : c < 70 ? 'WATCH' : 'STABLE'; return `<tr><td><b>${x.bloodGroup}</b></td><td>${x.availableUnits}</td><td>${x.weeklyDemand}</td><td>${c.toFixed(1)}%</td><td><span class="status ${s === 'CRITICAL' ? 'critical' : s === 'WATCH' ? 'watch' : 'stable'}">${s}</span></td><td>${x.hospital}</td></tr>` }).join('') } catch (e) { toast(e.message) } } inv.onsubmit = async e => { e.preventDefault(); try { await api('/inventory', { method: 'POST', body: JSON.stringify({ bloodGroup: ig.value, availableUnits: +iu.value, weeklyDemand: 100, hospital: 'City Hospital', location: 'Jamshedpur' }) }); toast('Inventory updated'); loadInventory() } catch (x) { toast(x.message) } }; loadInventory();</script>
+</body>
+
+</html>

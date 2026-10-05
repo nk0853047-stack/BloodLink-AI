@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Alerts | BloodLink AI</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="side-brand">
+                <div class="logo">🩸</div>
+                <div>
+                    <h2>BloodLink <b>AI</b></h2><small>EMERGENCY NETWORK</small>
+                </div>
+            </div>
+            <nav class="nav"><a href="dashboard.html">📊 Dashboard</a><a href="predictions.html">🤖 AI Predictions</a><a
+                    href="inventory.html">🩸 Inventory</a><a href="donors.html">👥 Donors</a><a href="hospitals.html">🏥
+                    Hospitals</a><a class="active" href="alerts.html">🚨 Alerts</a></nav>
+        </aside>
+        <main class="main">
+            <header class="top">
+                <div>
+                    <h1>Priority Alerts</h1>
+                    <p>Early warnings and response recommendations.</p>
+                </div>
+            </header>
+            <div class="grid two">
+                <div class="card">
+                    <div class="section-head">
+                        <h3>Critical</h3><span>2 active</span>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-icon">🔴</div>
+                        <div>
+                            <h4>O− stockout likely in 72 hours</h4>
+                            <p>City Hospital has 18 units against projected 96-unit demand.</p>
+                        </div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-icon">⚡</div>
+                        <div>
+                            <h4>Emergency demand spike</h4>
+                            <p>Trauma demand is 34% above baseline.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="section-head">
+                        <h3>Watch</h3><span>2 active</span>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-icon">🟡</div>
+                        <div>
+                            <h4>A− donation gap</h4>
+                            <p>Projected 28-unit deficit this week.</p>
+                        </div>
+                    </div>
+                    <div class="alert">
+                        <div class="alert-icon">🔄</div>
+                        <div>
+                            <h4>Regional transfer opportunity</h4>
+                            <p>Central Blood Bank can support City Hospital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top:15px">
+                <h3>Recommended Response Plan</h3>
+                <div class="grid three" style="margin-top:14px">
+                    <div class="card"><b>01 · Activate donors</b>
+                        <p class="muted">Send urgent O− and A− notifications.</p>
+                    </div>
+                    <div class="card"><b>02 · Transfer stock</b>
+                        <p class="muted">Move 30 O− units to critical hospitals.</p>
+                    </div>
+                    <div class="card"><b>03 · Recalculate</b>
+                        <p class="muted">Refresh prediction every 6 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+    <script>if (!localStorage.getItem('bloodlinkToken')) location.href = '../index.html';</script>
+</body>
+
+</html>
