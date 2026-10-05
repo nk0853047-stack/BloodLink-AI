@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="dashboard">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="active" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>Dashboard</h1><p>Network overview and real-time shortage intelligence.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<section class="hero"><div><div class="eyebrow" style="color:#ff7b83">PREDICTIVE HEALTHCARE INTELLIGENCE</div><h2>Stay ahead of blood shortages.</h2><p>BloodLink AI analyzes demand, inventory, emergency patterns, seasonal variation and donation trends to identify shortage risks before they become critical.</p><button id="runPrediction" class="btn primary">Run AI Prediction →</button></div></section>
+<section class="grid kpis">
+<div class="card"><div class="kpi-top"><span>Network Blood Units</span><span class="kpi-icon">🩸</span></div><div id="networkUnits" class="kpi-value">8,426</div><div class="kpi-sub">↑ 6.4% vs last week</div></div>
+<div class="card"><div class="kpi-top"><span>Hospitals Monitored</span><span class="kpi-icon">🏥</span></div><div class="kpi-value">24</div><div class="kpi-sub">All systems connected</div></div>
+<div class="card"><div class="kpi-top"><span>High-Risk Groups</span><span class="kpi-icon">⚠️</span></div><div id="riskScore" class="kpi-value">3</div><div class="kpi-sub warn">Requires attention</div></div>
+<div class="card"><div class="kpi-top"><span>Predicted Shortage</span><span class="kpi-icon">⏱️</span></div><div id="shortageWindow" class="kpi-value">72h</div><div class="kpi-sub warn">O− critical window</div></div>
+</section>
+<section class="grid two">
+<div class="card"><div class="section-head"><h3>Demand vs. Available Inventory</h3><span>7-day forecast</span></div>
+<div class="chart">
+<div class="bar-wrap"><div class="bar" style="height:62%"></div><div class="bar demand" style="height:45%"></div><span class="day">Mon</span></div>
+<div class="bar-wrap"><div class="bar" style="height:70%"></div><div class="bar demand" style="height:56%"></div><span class="day">Tue</span></div>
+<div class="bar-wrap"><div class="bar" style="height:67%"></div><div class="bar demand" style="height:62%"></div><span class="day">Wed</span></div>
+<div class="bar-wrap"><div class="bar" style="height:61%"></div><div class="bar demand" style="height:71%"></div><span class="day">Thu</span></div>
+<div class="bar-wrap"><div class="bar" style="height:57%"></div><div class="bar demand" style="height:78%"></div><span class="day">Fri</span></div>
+<div class="bar-wrap"><div class="bar" style="height:53%"></div><div class="bar demand" style="height:84%"></div><span class="day">Sat</span></div>
+<div class="bar-wrap"><div class="bar" style="height:48%"></div><div class="bar demand" style="height:91%"></div><span class="day">Sun</span></div>
+</div><div class="legend"><span><i class="i-gray"></i>Available</span><span><i class="i-red"></i>Predicted demand</span></div></div>
+<div class="card"><div class="section-head"><h3>Shortage Risk Index</h3><span>Next 7 days</span></div>
+<div class="risk-row"><div class="risk-info"><span>O−</span><span>92%</span></div><div class="progress"><span style="width:92%"></span></div></div>
+<div class="risk-row"><div class="risk-info"><span>A−</span><span>68%</span></div><div class="progress"><span style="width:68%"></span></div></div>
+<div class="risk-row"><div class="risk-info"><span>B−</span><span>54%</span></div><div class="progress"><span style="width:54%"></span></div></div>
+<div class="risk-row"><div class="risk-info"><span>O+</span><span>31%</span></div><div class="progress"><span style="width:31%"></span></div></div>
+</div></section>
+<section class="grid two" style="margin-top:16px">
+<div class="card"><div class="section-head"><h3>Regional Blood Network</h3><span>Live simulation</span></div><div class="network">
+<div class="node crit n1"><div class="node-dot"></div>City Hospital<br><span>Critical</span></div>
+<div class="node watchn n2"><div class="node-dot"></div>Central Blood Bank<br><span>Watch</span></div>
+<div class="node good n3"><div class="node-dot"></div>Metro Care<br><span>Stable</span></div>
+<div class="node watchn n4"><div class="node-dot"></div>District Hospital<br><span>Watch</span></div>
+<div class="node good n5"><div class="node-dot"></div>LifeCare<br><span>Stable</span></div>
+<div class="node crit n6"><div class="node-dot"></div>Emergency Centre<br><span>Critical</span></div>
+</div></div>
+<div class="card"><div class="section-head"><h3>Priority Alerts</h3><span>4 active</span></div>
+<div class="alert"><div class="alert-icon">🔴</div><div><h4>O− stockout likely in 72 hours</h4><p>City Hospital · 18 units remaining</p></div></div>
+<div class="alert"><div class="alert-icon">⚡</div><div><h4>Emergency demand spike detected</h4><p>Trauma cases are 34% above baseline.</p></div></div>
+<div class="alert"><div class="alert-icon">🩸</div><div><h4>A− donation gap</h4><p>Projected 28-unit deficit this week.</p></div></div>
+<div class="alert"><div class="alert-icon">🔄</div><div><h4>Regional transfer opportunity</h4><p>Metro Care can transfer 42 O+ units.</p></div></div>
+</div></section>
+<section class="card table-card"><div class="section-head"><h3>Blood Group Inventory</h3><a href="inventory.html">View full inventory →</a></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>Group</th><th>Available</th><th>7-day Demand</th><th>Coverage</th><th>Status</th><th>Action</th></tr></thead><tbody>
+<tr><td class="group">O−</td><td>18</td><td>96</td><td>18.7%</td><td><span class="status critical">CRITICAL</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">O+</td><td>1,842</td><td>2,310</td><td>79.7%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">A−</td><td>126</td><td>184</td><td>68.5%</td><td><span class="status watch">WATCH</span></td><td><button class="coord">Coordinate</button></td></tr>
+<tr><td class="group">A+</td><td>2,110</td><td>2,020</td><td>104.4%</td><td><span class="status stable">STABLE</span></td><td><button class="coord">Coordinate</button></td></tr>
+</tbody></table></div></section>
+
+</main></div>
+<script src="../script.js"></script></body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Predictions | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="predictions">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="active" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>AI Predictions</h1><p>Forecast potential shortages before they become critical.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<div class="page-title"><h2>AI Shortage Prediction</h2><p>Adjust network factors to simulate the predictive emergency model.</p></div>
+<div class="card">
+<form id="predictForm"><div class="form-grid">
+<div class="field"><label>Blood Group</label><select id="pGroup"><option>O−</option><option>O+</option><option>A−</option><option>A+</option><option>B−</option><option>B+</option><option>AB−</option><option>AB+</option></select></div>
+<div class="field"><label>Current Stock (units)</label><input id="pStock" type="number" value="80" min="0"></div>
+<div class="field"><label>Expected 7-day Demand</label><input id="pDemand" type="number" value="140" min="1"></div>
+<div class="field"><label>Emergency Multiplier</label><input id="pEmergency" type="number" value="1.2" step=".1" min=".5" max="3"></div>
+<div class="field"><label>Expected Donations</label><input id="pDonation" type="number" value="35" min="0"></div>
+<div class="field"><label>Seasonal Multiplier</label><input id="pSeasonal" type="number" value="1.1" step=".1" min=".5" max="2"></div>
+</div><button class="btn primary" style="margin-top:17px" type="submit">Calculate Risk</button></form>
+<div class="prediction-result"><div class="eyebrow" style="color:#ff7b83">MODEL OUTPUT</div><div id="predictionScore" class="prediction-score">--%</div><p>Predicted shortage risk for <b id="predictionGroup">O−</b> within <b id="predictionHours">--</b>.</p><div class="recommend"><div><b>Demand signal</b><span>Historical + emergency trend</span></div><div><b>Inventory signal</b><span>Current stock + donations</span></div><div><b>Recommendation</b><span id="predictionAdvice">Run the model to generate an action.</span></div></div></div>
+</div>
+
+</main></div>
+<script src="../script.js"></script></body></html>

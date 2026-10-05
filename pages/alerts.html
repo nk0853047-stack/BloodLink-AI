@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priority Alerts | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="alerts">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="active" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>Priority Alerts</h1><p>Review predictive warnings and recommended response actions.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<div class="page-title"><h2>Priority Alerts</h2><p>Early warnings generated from the predictive network.</p></div>
+<div class="grid two">
+<div class="card"><div class="section-head"><h3>Critical Alerts</h3><span>2 active</span></div>
+<div class="alert"><div class="alert-icon">🔴</div><div><h4>O− stockout likely in 72 hours</h4><p>City Hospital has 18 units against a projected 96-unit seven-day demand.</p></div><span class="status critical" style="margin-left:auto;height:max-content">CRITICAL</span></div>
+<div class="alert"><div class="alert-icon">🔴</div><div><h4>Emergency demand spike</h4><p>Trauma-related demand is 34% above the historical baseline.</p></div><span class="status critical" style="margin-left:auto;height:max-content">HIGH</span></div>
+</div>
+<div class="card"><div class="section-head"><h3>Watch Alerts</h3><span>2 active</span></div>
+<div class="alert"><div class="alert-icon">🟡</div><div><h4>A− donation gap</h4><p>Expected 28-unit deficit this week. Activate donor campaign.</p></div><span class="status watch" style="margin-left:auto;height:max-content">WATCH</span></div>
+<div class="alert"><div class="alert-icon">🔄</div><div><h4>Regional transfer opportunity</h4><p>Metro Care and Central Blood Bank have surplus inventory.</p></div><span class="status watch" style="margin-left:auto;height:max-content">ACTION</span></div>
+</div></div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h3>Recommended Response Plan</h3><span>AI-generated</span></div>
+<div class="recommend" style="margin-top:0"><div><b>01 · Activate donors</b><span>Send urgent O− and A− notifications.</span></div><div><b>02 · Transfer stock</b><span>Move 30 O− units to City Hospital.</span></div><div><b>03 · Monitor demand</b><span>Recalculate risk every 6 hours.</span></div></div></div>
+
+</main></div>
+<script src="../script.js"></script></body></html>

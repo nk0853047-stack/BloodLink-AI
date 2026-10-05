@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloodLink AI | Emergency Blood Network</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+  <div class="login-shell">
+    <div class="login-brand">
+      <div class="brand-mark">🩸</div>
+      <div>
+        <h1>BloodLink <span>AI</span></h1>
+        <p>Predictive Emergency Blood Shortage Network</p>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <div class="eyebrow">NETWORK ACCESS</div>
+      <h2>Welcome back</h2>
+      <p class="muted">Sign in to monitor blood availability, predict shortages and coordinate emergency transfers.</p>
+      <form id="loginForm">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="admin@bloodlink.ai" required>
+        <label>Password</label>
+        <input id="password" type="password" placeholder="••••••••" required>
+        <div class="login-row">
+          <label class="check"><input type="checkbox"> Remember me</label>
+          <a href="#" onclick="demoMessage('Demo mode: use any valid email and password.'); return false;">Forgot password?</a>
+        </div>
+        <button class="btn primary full" type="submit">Sign In <span>→</span></button>
+      </form>
+      <div class="demo-note">Demo access: any valid email + password works.</div>
+    </div>
+    <div class="login-footer">© 2026 BloodLink AI · Hackathon Prototype</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

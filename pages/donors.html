@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donor Network | BloodLink AI</title><link rel="stylesheet" href="../style.css"></head>
+<body data-page="donors">
+<div class="app">
+<aside class="sidebar">
+  <div class="side-brand"><div class="brand-mark">🩸</div><div><h2>BloodLink <span>AI</span></h2><small>EMERGENCY NETWORK</small></div></div>
+  <nav class="nav"><a class="" data-page="dashboard" href="dashboard.html"><span class="nav-icon">📊</span>Dashboard</a><a class="" data-page="predictions" href="predictions.html"><span class="nav-icon">🤖</span>AI Predictions</a><a class="" data-page="inventory" href="inventory.html"><span class="nav-icon">🩸</span>Blood Inventory</a><a class="active" data-page="donors" href="donors.html"><span class="nav-icon">👥</span>Donor Network</a><a class="" data-page="hospitals" href="hospitals.html"><span class="nav-icon">🏥</span>Hospitals</a><a class="" data-page="alerts" href="alerts.html"><span class="nav-icon">🚨</span>Alerts</a></nav>
+  <div class="side-bottom"><p><span class="live-dot"></span><b>Network Live</b></p><p>24 hospitals connected · prediction engine active</p></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><h1>Donor Network</h1><p>Match donors and activate emergency donation campaigns.</p></div><div class="actions"><button id="exportReport" class="btn soft">Export Report</button><div class="user"><div class="avatar">AD</div><span style="font-size:12px;font-weight:700">Admin</span></div></div></header>
+
+<div class="page-title"><h2>Donor Network</h2><p>Find eligible donors and activate emergency donation campaigns.</p></div>
+<div class="grid three">
+<div class="card"><div class="kpi-top"><span>Registered Donors</span><span class="kpi-icon">👥</span></div><div class="kpi-value">18,642</div><div class="kpi-sub">+428 this month</div></div>
+<div class="card"><div class="kpi-top"><span>Active Donors</span><span class="kpi-icon">🟢</span></div><div class="kpi-value">4,812</div><div class="kpi-sub">Available for requests</div></div>
+<div class="card"><div class="kpi-top"><span>Emergency Ready</span><span class="kpi-icon">⚡</span></div><div class="kpi-value">1,286</div><div class="kpi-sub">Can respond within 24h</div></div>
+</div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h3>Emergency Donor Matching</h3><span>Demo matching engine</span></div><form id="donorForm"><div class="form-grid"><div class="field"><label>Required Blood Group</label><select id="donorGroup"><option>O−</option><option>A−</option><option>B−</option><option>AB−</option><option>O+</option><option>A+</option><option>B+</option><option>AB+</option></select></div><div class="field"><label>City / Region</label><input id="donorCity" value="Jamshedpur" placeholder="Enter city"></div><div class="field"><label>Search Radius</label><select><option>10 km</option><option>25 km</option><option>50 km</option><option>100 km</option></select></div></div><button class="btn primary" style="margin-top:17px" type="submit">Find Matching Donors →</button></form></div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h3>Donor Campaigns</h3><button id="findDonors" class="btn soft">Quick Match</button></div><div class="alert"><div class="alert-icon">🩸</div><div><h4>O− Emergency Drive</h4><p>Target: 150 donors · 68 responses · Campaign active</p></div><span class="status critical" style="margin-left:auto;height:max-content">URGENT</span></div><div class="alert"><div class="alert-icon">📣</div><div><h4>A− Weekend Donation Camp</h4><p>Target: 80 donors · 51 responses · Saturday</p></div><span class="status watch" style="margin-left:auto;height:max-content">ACTIVE</span></div></div>
+
+</main></div>
+<script src="../script.js"></script></body></html>
